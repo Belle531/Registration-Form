@@ -27,11 +27,6 @@ form.addEventListener("submit", function (event) {
         <p><strong>Interests:</strong> ${interests.join(", ") || "None"}</p>
     `;
 
-    if (interests) {
-        outputContent += '<p><strong>Interests:</strong> ${interests.replace(/,/g, ",") || "None"}'</p>;
-    } else{
-        outputContent += '<p><strong>Interests:</strong> None</p>';
-    }
     output.innerHTML = outputContent;
 });
        
