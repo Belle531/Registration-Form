@@ -15,6 +15,8 @@ form.addEventListener("submit", function (event) {
     const interests = Array.from(document.querySelectorAll("input[name='interests']:checked"))
         .map(input => input.value);
 
+        const outputDiv = document.getElementById("output")
+        const urlParams = new URLSearchParams(window.location.search);
    
     const outputContent = `
         <h3>Submitted Information:</h3>
@@ -24,6 +26,12 @@ form.addEventListener("submit", function (event) {
         <p><strong>Birthday:</strong> ${birthday}</p>
         <p><strong>Interests:</strong> ${interests.join(", ") || "None"}</p>
     `;
+
+    if (interests) {
+        outputContent += '<p><strong>Interests:</strong> ${interests.replace(/,/g, ",") || "None"}'</p>;
+    } else{
+        outputContent += '<p><strong>Interests:</strong> None</p>';
+    }
     output.innerHTML = outputContent;
 });
        
